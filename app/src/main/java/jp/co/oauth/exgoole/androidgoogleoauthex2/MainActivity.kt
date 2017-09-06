@@ -89,5 +89,5 @@ class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
     }
 
     // https://stackoverflow.com/questions/31147709/restful-api-authentication-for-an-android-app
-    
+
 }
