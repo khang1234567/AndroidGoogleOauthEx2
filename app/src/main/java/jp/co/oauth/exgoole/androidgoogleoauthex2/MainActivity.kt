@@ -1,5 +1,6 @@
 package jp.co.oauth.exgoole.androidgoogleoauthex2
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.gms.common.SignInButton
@@ -11,6 +12,14 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.graphics.Rect
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+
+
+
 
 class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
 
@@ -61,5 +70,21 @@ class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
 
     override fun onConnectionFailed(p0: ConnectionResult) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val v = currentFocus
+            if (v is EditText) {
+                val outRect = Rect()
+                v.getGlobalVisibleRect(outRect)
+                if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                    v.clearFocus()
+                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(v.windowToken, 0)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event)
     }
 }
