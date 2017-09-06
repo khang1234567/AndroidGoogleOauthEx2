@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "114118670171",
+    "project_id": "ouathtestex1"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114118670171:android:9556323d34ba29d8",
+        "android_client_info": {
+          "package_name": "jp.co.oauth.exgoole.androidgoogleoauthex2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114118670171-q05d2419l0fu5khfh5bdatbcf990u7hb.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "114118670171-l1rpoornbchu80vluuhtmjpmeol2u096.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.co.oauth.exgoole.androidgoogleoauthex2",
+            "certificate_hash": "fcdcd3ac8202a38fb945b82a0026f5f30ac9b44d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKuIq0g9LQV14fYHJPYJ-HOfoJxAXhZK8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
