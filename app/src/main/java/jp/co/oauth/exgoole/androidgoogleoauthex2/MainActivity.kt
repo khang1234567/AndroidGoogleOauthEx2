@@ -14,11 +14,13 @@ import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.graphics.Rect
+import android.support.constraint.ConstraintLayout
+import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-
-
+import android.widget.RelativeLayout
 
 
 class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
@@ -26,10 +28,31 @@ class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
 
     var mGoogleApiClient: GoogleApiClient ? = null
 
+    companion object {
+        var RC_SIGN_IN = 9002
+        var TAG = "MainActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val btnGooglesignin: SignInButton = findViewById(R.id.btnGoogleSignIn) as SignInButton
+        val rlViewId: RelativeLayout = findViewById(R.id.rlViewId) as RelativeLayout
+        rlViewId.setOnTouchListener { view, motionEvent ->
+            when (motionEvent.actionMasked) {
+                MotionEvent.ACTION_DOWN -> Log.d("OK", "action down")
+
+                MotionEvent.ACTION_MOVE -> Log.d("OK", "action move")
+
+                MotionEvent.ACTION_UP -> Log.d("OK", "action up")
+
+                else -> {
+                }
+            }
+            true
+        }
+
+
         btnGooglesignin.setOnClickListener {
             signIn()
         }
@@ -63,10 +86,7 @@ class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
-    companion object {
-        var RC_SIGN_IN = 9002
-        var TAG = "MainActivity"
-    }
+
 
     override fun onConnectionFailed(p0: ConnectionResult) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -89,5 +109,7 @@ class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
     }
 
     // https://stackoverflow.com/questions/31147709/restful-api-authentication-for-an-android-app
-
+    // https://github.com/mcxiaoke/kotlin-koi/blob/master/samples/src/main/kotlin/com/mcxiaoke/koi/samples/ViewSample.kt
+    // DispatchOnTouchEvent
+    //http://neevek.net/posts/2013/10/13/implementing-onInterceptTouchEvent-and-onTouchEvent-for-ViewGroup.html
 }
