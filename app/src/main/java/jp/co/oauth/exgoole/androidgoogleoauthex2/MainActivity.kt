@@ -62,4 +62,50 @@ class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
     override fun onConnectionFailed(p0: ConnectionResult) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+/*
+val viewSCrollId: ScrollView =  findViewById(R.id.scroll_content_layout_id) as ScrollView
+        val viewSettingAreaId: FrameLayout = findViewById(R.id.view_setting_area_id) as FrameLayout
+
+        viewContentId.setOnTouchListener { v, event ->
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN -> {
+                    Log.d(TAG, "action down")
+                    viewSettingAreaId.visibility = View.INVISIBLE
+                }
+
+                MotionEvent.ACTION_MOVE -> Log.d(TAG, "action move")
+
+                MotionEvent.ACTION_UP -> {
+                    Log.d(TAG, "action_up")
+                    viewSettingAreaId.visibility = View.VISIBLE
+                }
+                else -> {
+
+                }
+            }
+            true
+        }
+
+        viewSCrollId.setOnTouchListener { v, event ->
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN -> {
+                    Log.d(TAG, "action down scroll")
+                    viewSettingAreaId.visibility = View.INVISIBLE
+                }
+
+                MotionEvent.ACTION_MOVE -> Log.d(TAG, "action move scroll")
+
+                MotionEvent.ACTION_UP -> {
+                    Log.d(TAG, "action_up scroll ")
+                    viewSettingAreaId.visibility = View.VISIBLE
+                }
+                else -> {
+
+                }
+            }
+            false
+        }
+
+
+*/
 }
