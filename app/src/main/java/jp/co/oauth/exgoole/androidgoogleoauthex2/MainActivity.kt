@@ -108,4 +108,11 @@ val viewSCrollId: ScrollView =  findViewById(R.id.scroll_content_layout_id) as S
 
 
 */
+
+    /**
+     *
+     */
+
+    //val confirm = ConfirmDialogFragment.newInstance("確認", "本当に破棄してもよろしいですか？")
+    //confirm.show(supportFragmentManager, confirm.FRAGMENT_TAG)
 }
