@@ -115,4 +115,52 @@ val viewSCrollId: ScrollView =  findViewById(R.id.scroll_content_layout_id) as S
 
     //val confirm = ConfirmDialogFragment.newInstance("確認", "本当に破棄してもよろしいですか？")
     //confirm.show(supportFragmentManager, confirm.FRAGMENT_TAG)
+/**
+override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                xMove = 0;
+                xUp = 0;
+                xDown = event.rawX.toInt()
+                yDown = event.rawY.toInt()
+                // logic
+                val v = currentFocus
+                if (v is EditText) {
+
+                    val outRect = Rect()
+                    v.getGlobalVisibleRect(outRect)
+                    if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                        v.clearFocus()
+                        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        imm.hideSoftInputFromWindow(v.windowToken, 0)
+                    }
+                }
+            }
+
+            MotionEvent.ACTION_MOVE -> {
+                var eventX = event.rawX.toInt()
+                if (xMoveCacheOneStep != event.rawX.toInt()) {
+                    xMove = xMoveCacheOneStep
+                }
+                xMoveCacheOneStep = eventX
+            }
+
+            MotionEvent.ACTION_UP -> {
+                yUp = event.rawY.toInt()
+                xUp = event.rawX.toInt()
+                if (Math.abs(yUp - yDown) < Math.abs(xUp - xDown)) {
+                    if (xUp - xMove > 0) {
+                        viewMain!!.animate().translationX(0F)
+                        flagShowMenu = true
+                    } else {
+                        viewMain!!.animate().translationX(-1 * (widthScreen!!.times(9) / 11 - resources.getDimension(R.dimen.dp_m)))
+                        flagShowMenu = false
+                    }
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event)
+    }
+
+*/
 }
