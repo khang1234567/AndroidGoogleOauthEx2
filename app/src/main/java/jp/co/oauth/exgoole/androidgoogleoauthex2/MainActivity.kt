@@ -21,6 +21,12 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.RelativeLayout
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.ndk.CrashlyticsNdk;
+import io.fabric.sdk.android.Fabric;
+
+
+
 
 
 class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
@@ -33,8 +39,10 @@ class MainActivity() : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
         var TAG = "MainActivity"
     }
 
+    //var btnGooglesignin: SignInButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Fabric.with(this, Crashlytics(), CrashlyticsNdk())
         setContentView(R.layout.activity_main)
         val btnGooglesignin: SignInButton = findViewById(R.id.btnGoogleSignIn) as SignInButton
         val rlViewId: RelativeLayout = findViewById(R.id.rlViewId) as RelativeLayout
